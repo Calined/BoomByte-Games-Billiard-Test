@@ -30,12 +30,14 @@ public class PushOnCharge : MonoBehaviour
 
     void ChargeBall()
     {
-        currentBallCharge += 0.5f * Time.deltaTime;
+        currentBallCharge += 0.4f * Time.deltaTime;
     }
 
     void PushBall()
     {
         Debug.Log("Push " + currentBallCharge);
+
+        GetComponent<Rigidbody>().AddForce(Vector3.forward * currentBallCharge * 1000);
 
         currentBallCharge = 0f;
     }
