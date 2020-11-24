@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PushOnCharge : MonoBehaviour
 {
+    private float currentBallCharge = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,11 @@ public class PushOnCharge : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetButton("Jump"))
+        {
+            ChargeBall();
+        }
+
         if (Input.GetButtonUp("Jump"))
         {
             PushBall();
@@ -21,9 +28,16 @@ public class PushOnCharge : MonoBehaviour
     }
 
 
+    void ChargeBall()
+    {
+        currentBallCharge += 0.5f * Time.deltaTime;
+    }
+
     void PushBall()
     {
-        Debug.Log("Push");
+        Debug.Log("Push " + currentBallCharge);
+
+        currentBallCharge = 0f;
     }
 
 
