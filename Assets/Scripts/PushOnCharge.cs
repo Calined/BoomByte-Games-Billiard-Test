@@ -37,7 +37,11 @@ public class PushOnCharge : MonoBehaviour
     {
         Debug.Log("Push " + currentBallCharge);
 
-        GetComponent<Rigidbody>().AddForce(Vector3.forward * currentBallCharge * 1000);
+        Vector3 pushVector = Camera.main.transform.forward;
+
+        pushVector = Vector3.Scale(pushVector, new Vector3(1f, 0f, 1f));
+
+        GetComponent<Rigidbody>().AddForce(pushVector * currentBallCharge * 1000);
 
         currentBallCharge = 0f;
     }
