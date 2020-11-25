@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
-
     public static Manager manager;
 
     public float currentVolume = 1f;
-
+    public int playerPoints = 0;
+    public bool redBallHit = false;
+    public bool yellowBallHit = false;
 
     void Awake()
     {

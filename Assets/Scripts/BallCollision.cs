@@ -23,6 +23,20 @@ public class BallCollision : MonoBehaviour
         myAudioSource.volume = Manager.manager.currentVolume;
         myAudioSource.Play();
 
+        if (gameObject.name == "WhiteBall")
+        {
+            if (collision.gameObject.name == "YellowBall")
+            {
+                Manager.manager.yellowBallHit = true;
+            }
+
+            if (collision.gameObject.name == "RedBall")
+            {
+                Manager.manager.redBallHit = true;
+            }
+
+
+        }
     }
 
 }
