@@ -20,6 +20,7 @@ public class BallCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        myAudioSource.volume = Manager.manager.currentVolume;
         myAudioSource.Play();
 
     }
