@@ -27,7 +27,8 @@ public class BallCollision : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        myAudioSource.volume = Manager.manager.currentVolume;
+        Debug.Log(GetComponent<Rigidbody>().velocity.magnitude);
+        myAudioSource.volume = Manager.manager.currentVolume * GetComponent<Rigidbody>().velocity.magnitude / 10f;
         myAudioSource.Play();
 
         if (gameObject.name == "WhiteBall")
