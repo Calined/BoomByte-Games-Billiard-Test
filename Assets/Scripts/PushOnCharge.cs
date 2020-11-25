@@ -6,6 +6,11 @@ public class PushOnCharge : MonoBehaviour
 {
     private float currentBallCharge = 0f;
 
+    public Transform targetRay;
+
+    private Vector3 pushVector;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,16 +35,22 @@ public class PushOnCharge : MonoBehaviour
 
     void ChargeBall()
     {
+        targetRay.gameObject.SetActive(true);
+
+        pushVector = Camera.main.transform.forward;
+
+        pushVector = Vector3.Scale(pushVector, new Vector3(1f, 0f, 1f));
+
+        targetRay.LookAt(transform.position + pushVector);
+
+
         currentBallCharge += 0.4f * Time.deltaTime;
+
     }
 
     void PushBall()
     {
-        Debug.Log("Push " + currentBallCharge);
-
-        Vector3 pushVector = Camera.main.transform.forward;
-
-        pushVector = Vector3.Scale(pushVector, new Vector3(1f, 0f, 1f));
+        targetRay.gameObject.SetActive(false);
 
         GetComponent<Rigidbody>().AddForce(pushVector * currentBallCharge * 1000);
 
