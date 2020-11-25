@@ -56,8 +56,14 @@ public class Manager : MonoBehaviour
 
         if (allSleeping)
         {
+            if (redBallHit && yellowBallHit)
+            {
+                playerPoints++;
+            }
+
             redBallHit = false;
             yellowBallHit = false;
+
         }
 
     }

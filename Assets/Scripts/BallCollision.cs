@@ -36,20 +36,12 @@ public class BallCollision : MonoBehaviour
             {
                 Manager.manager.yellowBallHit = true;
 
-                if (Manager.manager.redBallHit)
-                {
-                    Manager.manager.playerPoints++;
-                }
             }
 
             if (collision.gameObject.name == "RedBall")
             {
                 Manager.manager.redBallHit = true;
 
-                if (Manager.manager.yellowBallHit)
-                {
-                    Manager.manager.playerPoints++;
-                }
             }
 
 
