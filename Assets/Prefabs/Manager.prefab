@@ -43,3 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e338fc06fc2a1439df75817af3855a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentVolume: 1
+  playerPoints: 0
+  redBallHit: 0
+  yellowBallHit: 0
+  balls:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

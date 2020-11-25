@@ -9,6 +9,8 @@ public class BallCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Manager.manager.balls.Add(this.gameObject);
+
         myAudioSource = GetComponent<AudioSource>();
     }
 
@@ -16,6 +18,11 @@ public class BallCollision : MonoBehaviour
     void Update()
     {
 
+        if (GetComponent<Rigidbody>().velocity.magnitude < 0.3f && GetComponent<Rigidbody>().velocity.magnitude > 0.01f)
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -48,5 +55,7 @@ public class BallCollision : MonoBehaviour
 
         }
     }
+
+
 
 }

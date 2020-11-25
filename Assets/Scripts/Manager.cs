@@ -12,6 +12,8 @@ public class Manager : MonoBehaviour
     public bool redBallHit = false;
     public bool yellowBallHit = false;
 
+    public List<GameObject> balls;
+
     void Awake()
     {
         if (!manager)
@@ -37,6 +39,26 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckForSleepingBalls();
+    }
+
+    void CheckForSleepingBalls()
+    {
+        bool allSleeping = true;
+        foreach (GameObject ball in balls)
+        {
+            if (!ball.GetComponent<Rigidbody>().IsSleeping())
+            {
+
+                allSleeping = false;
+            }
+        }
+
+        if (allSleeping)
+        {
+            redBallHit = false;
+            yellowBallHit = false;
+        }
 
     }
 
