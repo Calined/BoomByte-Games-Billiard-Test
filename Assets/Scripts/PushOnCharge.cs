@@ -21,15 +21,19 @@ public class PushOnCharge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetButton("Jump"))
+        if (Manager.manager.gameIsRunning)
         {
-            ChargeBall();
-        }
 
-        if (Input.GetButtonUp("Jump"))
-        {
-            PushBall();
+            if (Input.GetButton("Jump"))
+            {
+                ChargeBall();
+            }
+
+            if (Input.GetButtonUp("Jump"))
+            {
+                PushBall();
+            }
+
         }
     }
 

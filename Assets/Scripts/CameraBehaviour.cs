@@ -15,10 +15,11 @@ public class CameraBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = positionTarget.position;
+        if (Manager.manager.gameIsRunning)
+        {
+            transform.position = positionTarget.position;
 
-        transform.Rotate(Input.GetAxis("Horizontal") * Vector3.up * Time.deltaTime * 50f);
-
-
+            transform.Rotate(Input.GetAxis("Horizontal") * Vector3.up * Time.deltaTime * 50f);
+        }
     }
 }
