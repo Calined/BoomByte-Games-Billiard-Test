@@ -17,7 +17,7 @@ public class CameraBehaviour : MonoBehaviour
     {
         transform.position = positionTarget.position;
 
-        transform.Rotate(-Input.GetAxis("Horizontal") * Vector3.up * Time.deltaTime * 50f);
+        transform.Rotate(Input.GetAxis("Horizontal") * Vector3.up * Time.deltaTime * 50f);
 
 
     }
