@@ -41,6 +41,16 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    void StartGame()
+    {
+        shotsMade = 0;
+        playerPoints = 0;
+        secondsSpent = 0;
+
+        gameIsRunning = true;
         StartCoroutine("Timer");
     }
 
@@ -89,8 +99,9 @@ public class Manager : MonoBehaviour
 
     public void LoadBilliardScene()
     {
-
+        balls.Clear();
         SceneManager.LoadScene("billiard");
+        StartGame();
     }
 
 }
