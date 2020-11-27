@@ -6,11 +6,17 @@ using UnityEngine.SceneManagement;
 public class Manager : MonoBehaviour
 {
     public static Manager manager;
+    public ScoreBoard scoreBoard;
 
     public float currentVolume = 1f;
+
+    public int shotsMade = 0;
     public int playerPoints = 0;
+
     public bool redBallHit = false;
     public bool yellowBallHit = false;
+
+
 
     public List<GameObject> balls;
 
