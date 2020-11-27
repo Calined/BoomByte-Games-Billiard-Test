@@ -7,6 +7,7 @@ public class PushOnCharge : MonoBehaviour
     private float currentBallCharge = 0f;
 
     public Transform targetRay;
+    public Transform reflectionRay;
 
     private Vector3 pushVector;
 
@@ -35,18 +36,38 @@ public class PushOnCharge : MonoBehaviour
 
     void ChargeBall()
     {
-        targetRay.gameObject.SetActive(true);
 
         pushVector = Camera.main.transform.forward;
 
         pushVector = Vector3.Scale(pushVector, new Vector3(1f, 0f, 1f));
 
-        targetRay.LookAt(transform.position + pushVector);
-
         currentBallCharge += 0.4f * Time.deltaTime;
+
+        DrawTargetRay();
+
+    }
+
+    void DrawTargetRay()
+    {
+        targetRay.gameObject.SetActive(true);
+
+        targetRay.LookAt(transform.position + pushVector);
 
         targetRay.localScale = new Vector3(2f, 2f, currentBallCharge * 27f);
 
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, pushVector, out hit, 10f))
+        {
+            reflectionRay.gameObject.SetActive(true);
+            reflectionRay.transform.position = hit.point;
+            reflectionRay.transform.LookAt(reflectionRay.transform.position + hit.normal);
+        }
+        else
+        {
+            reflectionRay.gameObject.SetActive(false);
+        }
     }
 
     void PushBall()
