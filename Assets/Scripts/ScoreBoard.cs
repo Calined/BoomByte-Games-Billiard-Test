@@ -21,15 +21,30 @@ public class ScoreBoard : MonoBehaviour
         shotsMadeText.text = Manager.manager.shotsMade.ToString();
         pointsText.text = Manager.manager.playerPoints.ToString();
 
-        int seconds = Manager.manager.secondsSpent % 60;
-        int minutes = (Manager.manager.secondsSpent - seconds) / 60;
-
-        timeText.text = minutes + ":" + seconds;
+        timeText.text = Manager.manager.SecondsToTimeString(Manager.manager.secondsSpent);
 
         if (Manager.manager.playerPoints >= 3)
         {
             Manager.manager.gameIsRunning = false;
             winScreen.SetActive(true);
+
+            SaveGame();
         }
     }
+
+
+    void SaveGame()
+    {
+        SavedGame savedGame = new SavedGame();
+
+        savedGame.shotsMade = Manager.manager.shotsMade;
+        savedGame.playerPoints = Manager.manager.playerPoints;
+        savedGame.secondsSpent = Manager.manager.secondsSpent;
+
+        string jsonString = JsonUtility.ToJson(savedGame);
+
+        PlayerPrefs.SetString("SavedGame", jsonString);
+
+    }
+
 }

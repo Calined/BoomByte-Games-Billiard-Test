@@ -14,6 +14,7 @@ public class Manager : MonoBehaviour
     public int playerPoints = 0;
     public int secondsSpent = 0;
 
+
     public bool redBallHit = false;
     public bool yellowBallHit = false;
 
@@ -108,6 +109,15 @@ public class Manager : MonoBehaviour
     {
         balls.Clear();
         SceneManager.LoadScene("menu");
+    }
+
+
+    public string SecondsToTimeString(int secondsInput)
+    {
+        int seconds = secondsInput % 60;
+        int minutes = (secondsInput - seconds) / 60;
+
+        return minutes + ":" + seconds;
     }
 
 }
