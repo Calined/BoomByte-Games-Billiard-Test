@@ -8,6 +8,7 @@ public class ScoreBoard : MonoBehaviour
     public Text shotsMadeText;
     public Text pointsText;
     public Text timeText;
+    public GameObject winScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -24,5 +25,11 @@ public class ScoreBoard : MonoBehaviour
         int minutes = (Manager.manager.secondsSpent - seconds) / 60;
 
         timeText.text = minutes + ":" + seconds;
+
+        if (Manager.manager.playerPoints >= 3)
+        {
+            Manager.manager.gameIsRunning = false;
+            winScreen.SetActive(true);
+        }
     }
 }
