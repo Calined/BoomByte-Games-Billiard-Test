@@ -62,7 +62,7 @@ public class PushOnCharge : MonoBehaviour
         {
             reflectionRay.gameObject.SetActive(true);
             reflectionRay.transform.position = hit.point;
-            reflectionRay.transform.LookAt(reflectionRay.transform.position + hit.normal);
+            reflectionRay.transform.LookAt(reflectionRay.transform.position + Vector3.Reflect(pushVector, hit.normal));
         }
         else
         {
