@@ -43,8 +43,9 @@ public class PushOnCharge : MonoBehaviour
 
         targetRay.LookAt(transform.position + pushVector);
 
-
         currentBallCharge += 0.4f * Time.deltaTime;
+
+        targetRay.localScale = new Vector3(2f, 2f, currentBallCharge * 27f);
 
     }
 
