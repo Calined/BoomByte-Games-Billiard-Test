@@ -53,12 +53,14 @@ public class PushOnCharge : MonoBehaviour
 
         targetRay.LookAt(transform.position + pushVector);
 
-        targetRay.localScale = new Vector3(2f, 2f, currentBallCharge * 27f);
+        float rayLenght = currentBallCharge * 27f;
+
+        targetRay.localScale = new Vector3(2f, 2f, rayLenght);
 
 
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, pushVector, out hit, 10f))
+        if (Physics.Raycast(transform.position, pushVector, out hit, rayLenght))
         {
             reflectionRay.gameObject.SetActive(true);
             reflectionRay.transform.position = hit.point;
@@ -73,6 +75,7 @@ public class PushOnCharge : MonoBehaviour
     void PushBall()
     {
         targetRay.gameObject.SetActive(false);
+        reflectionRay.gameObject.SetActive(false);
 
         GetComponent<Rigidbody>().AddForce(pushVector * currentBallCharge * 1000);
 
