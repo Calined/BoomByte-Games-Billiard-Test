@@ -104,4 +104,9 @@ public class Manager : MonoBehaviour
         StartGame();
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("menu");
+    }
+
 }

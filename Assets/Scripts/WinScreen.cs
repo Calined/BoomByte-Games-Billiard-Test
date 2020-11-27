@@ -22,4 +22,9 @@ public class WinScreen : MonoBehaviour
         Manager.manager.LoadBilliardScene();
     }
 
+    public void GoToMainMenu()
+    {
+        Manager.manager.LoadMainMenu();
+    }
+
 }
