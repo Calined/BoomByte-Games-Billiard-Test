@@ -19,6 +19,7 @@ public class Manager : MonoBehaviour
     public bool yellowBallHit = false;
 
     public bool gameIsRunning = true;
+    public bool ballsAreMoving = false;
 
     public List<GameObject> balls;
 
@@ -85,6 +86,8 @@ public class Manager : MonoBehaviour
 
         if (allSleeping)
         {
+            ballsAreMoving = false;
+
             if (redBallHit && yellowBallHit)
             {
                 playerPoints++;
@@ -94,6 +97,10 @@ public class Manager : MonoBehaviour
             redBallHit = false;
             yellowBallHit = false;
 
+        }
+        else
+        {
+            ballsAreMoving = true;
         }
 
     }
