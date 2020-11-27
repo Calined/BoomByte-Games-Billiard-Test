@@ -65,6 +65,7 @@ public class Manager : MonoBehaviour
             if (redBallHit && yellowBallHit)
             {
                 playerPoints++;
+                scoreBoard.UpdateBoard();
             }
 
             redBallHit = false;

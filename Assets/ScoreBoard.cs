@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour
 {
     public Text shotsMadeText;
+    public Text pointsText;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +17,6 @@ public class ScoreBoard : MonoBehaviour
     public void UpdateBoard()
     {
         shotsMadeText.text = Manager.manager.shotsMade.ToString();
+        pointsText.text = Manager.manager.playerPoints.ToString();
     }
 }
