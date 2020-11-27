@@ -7,6 +7,7 @@ public class ScoreBoard : MonoBehaviour
 {
     public Text shotsMadeText;
     public Text pointsText;
+    public Text timeText;
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +19,6 @@ public class ScoreBoard : MonoBehaviour
     {
         shotsMadeText.text = Manager.manager.shotsMade.ToString();
         pointsText.text = Manager.manager.playerPoints.ToString();
+        timeText.text = Manager.manager.secondsSpent.ToString();
     }
 }

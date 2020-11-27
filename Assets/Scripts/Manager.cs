@@ -12,11 +12,12 @@ public class Manager : MonoBehaviour
 
     public int shotsMade = 0;
     public int playerPoints = 0;
+    public int secondsSpent = 0;
 
     public bool redBallHit = false;
     public bool yellowBallHit = false;
 
-
+    public bool gameIsRunning = true;
 
     public List<GameObject> balls;
 
@@ -29,6 +30,7 @@ public class Manager : MonoBehaviour
         }
         else
         {
+            manager.secondsSpent = 0;
             Destroy(gameObject);
         }
 
@@ -39,7 +41,17 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine("Timer");
+    }
 
+    IEnumerator Timer()
+    {
+        while (gameIsRunning)
+        {
+            yield return new WaitForSeconds(1);
+            secondsSpent++;
+            scoreBoard.UpdateBoard();
+        }
     }
 
     // Update is called once per frame
