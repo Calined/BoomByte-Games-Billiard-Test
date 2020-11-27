@@ -106,6 +106,7 @@ public class Manager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        balls.Clear();
         SceneManager.LoadScene("menu");
     }
 

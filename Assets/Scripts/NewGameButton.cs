@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WinScreen : MonoBehaviour
+public class NewGameButton : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +17,9 @@ public class WinScreen : MonoBehaviour
     }
 
 
-    public void GoToMainMenu()
+    public void NewGame()
     {
-        Manager.manager.LoadMainMenu();
+        Manager.manager.LoadBilliardScene();
     }
 
 }
