@@ -19,6 +19,10 @@ public class ScoreBoard : MonoBehaviour
     {
         shotsMadeText.text = Manager.manager.shotsMade.ToString();
         pointsText.text = Manager.manager.playerPoints.ToString();
-        timeText.text = Manager.manager.secondsSpent.ToString();
+
+        int seconds = Manager.manager.secondsSpent % 60;
+        int minutes = (Manager.manager.secondsSpent - seconds) / 60;
+
+        timeText.text = minutes + ":" + seconds;
     }
 }
