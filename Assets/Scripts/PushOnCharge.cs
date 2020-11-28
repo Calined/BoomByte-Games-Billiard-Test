@@ -101,8 +101,11 @@ public class PushOnCharge : MonoBehaviour
 
         GetComponent<Rigidbody>().AddForce(pushVector * currentBallCharge * 1000);
 
-        Manager.manager.shotsMade++;
-        Manager.manager.scoreBoard.UpdateBoard();
+        if (!Manager.manager.replayIsOn)
+        {
+            Manager.manager.shotsMade++;
+            Manager.manager.scoreBoard.UpdateBoard();
+        }
 
         currentBallCharge = 0f;
     }
