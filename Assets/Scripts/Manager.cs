@@ -130,7 +130,10 @@ public class Manager : MonoBehaviour
         int seconds = secondsInput % 60;
         int minutes = (secondsInput - seconds) / 60;
 
-        return minutes + ":" + seconds;
+        string minutesString = minutes > 9 ? minutes.ToString() : "0" + minutes.ToString();
+        string secondsString = seconds > 9 ? seconds.ToString() : "0" + seconds.ToString();
+
+        return minutesString + ":" + secondsString;
     }
 
     public void ReplaySave()
