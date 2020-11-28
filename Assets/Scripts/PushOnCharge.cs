@@ -47,6 +47,8 @@ public class PushOnCharge : MonoBehaviour
 
         currentBallCharge += 0.4f * Time.deltaTime;
 
+        currentBallCharge = Mathf.Min(1f, currentBallCharge);
+
         DrawTargetRay();
 
     }
@@ -72,7 +74,7 @@ public class PushOnCharge : MonoBehaviour
 
             targetRayLength = Vector3.Distance(transform.position, hit.point);
 
-            float reflectionRayLength = rayLenght - targetRayLength;
+            float reflectionRayLength = (rayLenght - targetRayLength) * 0.6f;
 
             reflectionRay.localScale = new Vector3(2f, 2f, reflectionRayLength);
         }
