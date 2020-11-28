@@ -20,6 +20,7 @@ public class WinScreen : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Manager.manager.gameIsRunning = false;
         Manager.manager.LoadMainMenu();
     }
 

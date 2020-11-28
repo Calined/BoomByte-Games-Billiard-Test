@@ -62,7 +62,7 @@ public class Manager : MonoBehaviour
         while (gameIsRunning)
         {
             yield return new WaitForSeconds(1);
-            if (!replayIsOn)
+            if (!replayIsOn && gameIsRunning)
             {
                 secondsSpent++;
                 scoreBoard.UpdateBoard();
