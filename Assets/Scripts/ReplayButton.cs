@@ -19,6 +19,8 @@ public class ReplayButton : MonoBehaviour
 
     public void ReplayLastMove()
     {
+        Manager.manager.replayIsOn = true;
+
         Manager.manager.ReplayLoad();
     }
 }

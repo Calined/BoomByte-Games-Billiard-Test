@@ -20,6 +20,7 @@ public class Manager : MonoBehaviour
 
     public bool gameIsRunning = true;
     public bool ballsAreMoving = false;
+    public bool replayIsOn = false;
 
     public List<GameObject> balls;
 
@@ -88,7 +89,7 @@ public class Manager : MonoBehaviour
         {
             ballsAreMoving = false;
 
-            if (redBallHit && yellowBallHit)
+            if (redBallHit && yellowBallHit && !replayIsOn)
             {
                 playerPoints++;
                 scoreBoard.UpdateBoard();
@@ -96,6 +97,8 @@ public class Manager : MonoBehaviour
 
             redBallHit = false;
             yellowBallHit = false;
+
+            replayIsOn = false;
 
         }
         else
