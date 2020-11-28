@@ -1710,7 +1710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7357256986620587832, guid: a4d4eda2e06c99f4da23d1bb3ad20462, type: 3}
       propertyPath: playerPoints
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7357256986620587832, guid: a4d4eda2e06c99f4da23d1bb3ad20462, type: 3}
       propertyPath: gameIsRunning
