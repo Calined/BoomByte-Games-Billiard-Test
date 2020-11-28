@@ -9,6 +9,7 @@ public class ScoreBoard : MonoBehaviour
     public Text pointsText;
     public Text timeText;
     public GameObject winScreen;
+    public GameObject replayButton;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class ScoreBoard : MonoBehaviour
         {
             Manager.manager.gameIsRunning = false;
             winScreen.SetActive(true);
+            replayButton.SetActive(false);
 
             SaveGame();
         }
