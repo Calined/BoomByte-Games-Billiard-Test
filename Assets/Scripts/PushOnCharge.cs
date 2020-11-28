@@ -63,6 +63,8 @@ public class PushOnCharge : MonoBehaviour
 
         Vector3 previousHit = transform.position;
 
+        int reflectionCount = 1;
+
         foreach (Transform targetRay in targetRays)
         {
             if (totalRayLenghtLeft > 0)
@@ -81,6 +83,7 @@ public class PushOnCharge : MonoBehaviour
 
                     previousHit = hit.point;
                 }
+
                 else
                 {
                     currentTargetRayLength = totalRayLenghtLeft;
@@ -92,12 +95,16 @@ public class PushOnCharge : MonoBehaviour
 
                 totalRayLenghtLeft -= currentTargetRayLength;
 
+                reflectionCount++;
+
+                totalRayLenghtLeft = totalRayLenghtLeft / reflectionCount;
             }
 
             else
             {
                 targetRay.gameObject.SetActive(false);
             }
+
 
         }
     }
