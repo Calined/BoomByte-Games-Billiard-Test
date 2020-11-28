@@ -140,7 +140,7 @@ public class Manager : MonoBehaviour
     {
         foreach (GameObject ball in balls)
         {
-            ball.GetComponent<BallCollision>().previousPosition = ball.transform.position;
+            ball.GetComponent<BallCollision>().ReplaySave();
         }
     }
 
@@ -155,7 +155,7 @@ public class Manager : MonoBehaviour
                 whiteBall = ball;
             }
 
-            ball.transform.position = ball.GetComponent<BallCollision>().previousPosition;
+            ball.GetComponent<BallCollision>().ReplayLoad();
         }
 
         whiteBall.GetComponent<PushOnCharge>().ReplayLoad();

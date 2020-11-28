@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallCollision : MonoBehaviour
 {
-    public Vector3 previousPosition;
+    Vector3 previousPosition;
 
     AudioSource myAudioSource;
 
@@ -51,6 +51,14 @@ public class BallCollision : MonoBehaviour
         }
     }
 
+    public void ReplaySave()
+    {
+        previousPosition = transform.position;
+    }
 
+    public void ReplayLoad()
+    {
+        transform.position = previousPosition;
+    }
 
 }
