@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PushOnCharge : MonoBehaviour
 {
-    private float currentBallCharge = 0f;
+    float currentBallCharge = 0f;
 
     public Transform targetRay;
     public Transform reflectionRay;
 
-    private Vector3 pushVector;
+    Vector3 pushVector;
 
     float previousPushCarge;
     Vector3 previousPushVector;
@@ -93,11 +93,8 @@ public class PushOnCharge : MonoBehaviour
 
     void PushBall()
     {
-        previousPushCarge = currentBallCharge;
-        previousPushVector = pushVector;
 
-        Manager.manager.ReplaySave();
-
+        ReplaySave();
 
         targetRay.gameObject.SetActive(false);
         reflectionRay.gameObject.SetActive(false);
@@ -110,6 +107,20 @@ public class PushOnCharge : MonoBehaviour
         currentBallCharge = 0f;
     }
 
+    void ReplaySave()
+    {
+        previousPushCarge = currentBallCharge;
+        previousPushVector = pushVector;
 
+        Manager.manager.ReplaySave();
+    }
+
+    public void ReplayLoad()
+    {
+        currentBallCharge = previousPushCarge;
+        pushVector = previousPushVector;
+
+        PushBall();
+    }
 
 }

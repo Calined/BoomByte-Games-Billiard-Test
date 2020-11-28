@@ -137,10 +137,20 @@ public class Manager : MonoBehaviour
 
     public void ReplayLoad()
     {
+        GameObject whiteBall = null;
+
         foreach (GameObject ball in balls)
         {
+            if (ball.name == "WhiteBall")
+            {
+                whiteBall = ball;
+            }
+
             ball.transform.position = ball.GetComponent<BallCollision>().previousPosition;
         }
+
+        whiteBall.GetComponent<PushOnCharge>().ReplayLoad();
+
     }
 
 }
