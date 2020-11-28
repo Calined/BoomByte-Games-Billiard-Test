@@ -17,19 +17,21 @@ public class LastGameScoreBoard : MonoBehaviour
 
     void LoadGame()
     {
-        SavedGame savedGame = new SavedGame();
 
-        string jsonString = PlayerPrefs.GetString("SavedGame");
+        if (PlayerPrefs.HasKey("SavedGame"))
+        {
+            SavedGame savedGame = new SavedGame();
 
-        savedGame = JsonUtility.FromJson<SavedGame>(jsonString);
+            string jsonString = PlayerPrefs.GetString("SavedGame");
 
-        shotsMadeText.text = savedGame.shotsMade.ToString();
-        pointsText.text = savedGame.playerPoints.ToString();
+            savedGame = JsonUtility.FromJson<SavedGame>(jsonString);
 
-        timeText.text = Manager.manager.SecondsToTimeString(savedGame.secondsSpent);
+            shotsMadeText.text = savedGame.shotsMade.ToString();
+            pointsText.text = savedGame.playerPoints.ToString();
 
+            timeText.text = Manager.manager.SecondsToTimeString(savedGame.secondsSpent);
+        }
 
     }
-
 
 }
