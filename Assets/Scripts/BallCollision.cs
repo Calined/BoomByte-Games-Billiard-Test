@@ -6,14 +6,11 @@ public class BallCollision : MonoBehaviour
 {
     Vector3 previousPosition;
 
-    AudioSource myAudioSource;
-
     // Start is called before the first frame update
     void Start()
     {
         Manager.manager.balls.Add(this.gameObject);
 
-        myAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,15 +27,14 @@ public class BallCollision : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        myAudioSource.volume = Manager.manager.currentVolume * GetComponent<Rigidbody>().velocity.magnitude / 10f;
-        myAudioSource.Play();
+        GetComponent<AudioSource>().volume = Manager.manager.currentVolume * GetComponent<Rigidbody>().velocity.magnitude / 10f;
+        GetComponent<AudioSource>().Play();
 
         if (gameObject.name == "WhiteBall")
         {
             if (collision.gameObject.name == "YellowBall")
             {
                 Manager.manager.yellowBallHit = true;
-
             }
 
             if (collision.gameObject.name == "RedBall")
