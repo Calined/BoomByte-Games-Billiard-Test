@@ -6,8 +6,7 @@ public class PushOnCharge : MonoBehaviour
 {
     float currentBallCharge = 0f;
 
-    public Transform targetRay;
-    public Transform reflectionRay;
+    public List<Transform> targetRays;
 
     Vector3 pushVector;
 
@@ -51,53 +50,68 @@ public class PushOnCharge : MonoBehaviour
 
         currentBallCharge = Mathf.Min(1f, currentBallCharge);
 
-        DrawTargetRay();
+        DrawAllTargetRays();
 
     }
 
-    void DrawTargetRay()
+    void DrawAllTargetRays()
     {
-        targetRay.gameObject.SetActive(true);
+        float totalRayLenghtLeft = currentBallCharge * 27f;
+        float currentTargetRayLength = 0f;
 
-        targetRay.LookAt(transform.position + pushVector);
+        Vector3 currentDirection = pushVector;
 
-        float rayLenght = currentBallCharge * 27f;
-        float targetRayLength;
+        Vector3 previousHit = transform.position;
 
-        RaycastHit hit;
-
-
-
-        if (Physics.Raycast(transform.position, pushVector, out hit, rayLenght))
+        foreach (Transform targetRay in targetRays)
         {
-            reflectionRay.gameObject.SetActive(true);
-            reflectionRay.transform.position = hit.point;
-            reflectionRay.transform.LookAt(reflectionRay.transform.position + Vector3.Reflect(pushVector, hit.normal));
+            if (totalRayLenghtLeft > 0)
+            {
+                targetRay.position = previousHit;
 
-            targetRayLength = Vector3.Distance(transform.position, hit.point);
+                targetRay.LookAt(targetRay.position + currentDirection);
 
-            float reflectionRayLength = (rayLenght - targetRayLength) * 0.6f;
+                RaycastHit hit;
 
-            reflectionRay.localScale = new Vector3(2f, 2f, reflectionRayLength);
+                if (Physics.Raycast(targetRay.position, currentDirection, out hit, totalRayLenghtLeft))
+                {
+                    currentTargetRayLength = Vector3.Distance(targetRay.position, hit.point);
+
+                    currentDirection = Vector3.Reflect(currentDirection, hit.normal);
+
+                    previousHit = hit.point;
+                }
+                else
+                {
+                    currentTargetRayLength = totalRayLenghtLeft;
+                }
+
+                targetRay.localScale = new Vector3(2f, 2f, currentTargetRayLength);
+
+                targetRay.gameObject.SetActive(true);
+
+                totalRayLenghtLeft -= currentTargetRayLength;
+
+            }
+
+            else
+            {
+                targetRay.gameObject.SetActive(false);
+            }
+
         }
-        else
-        {
-            reflectionRay.gameObject.SetActive(false);
-
-            targetRayLength = rayLenght;
-        }
-
-        targetRay.localScale = new Vector3(2f, 2f, targetRayLength);
-
     }
+
 
     void PushBall()
     {
 
         ReplaySave();
 
-        targetRay.gameObject.SetActive(false);
-        reflectionRay.gameObject.SetActive(false);
+        foreach (Transform targetRay in targetRays)
+        {
+            targetRay.gameObject.SetActive(false);
+        }
 
         GetComponent<Rigidbody>().AddForce(pushVector * currentBallCharge * 1000);
 
