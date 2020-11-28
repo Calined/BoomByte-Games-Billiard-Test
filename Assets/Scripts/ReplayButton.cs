@@ -14,7 +14,7 @@ public class ReplayButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Button>().interactable = Manager.manager.ballsAreMoving || Input.GetButton("Jump") ? false : true;
+        GetComponent<Button>().interactable = Manager.manager.ballsAreMoving || Input.GetButton("Jump") || Manager.manager.shotsMade == 0 ? false : true;
     }
 
     public void ReplayLastMove()
