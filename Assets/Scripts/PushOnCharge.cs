@@ -11,6 +11,8 @@ public class PushOnCharge : MonoBehaviour
 
     private Vector3 pushVector;
 
+    float previousPushCarge;
+    Vector3 previousPushVector;
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +93,12 @@ public class PushOnCharge : MonoBehaviour
 
     void PushBall()
     {
+        previousPushCarge = currentBallCharge;
+        previousPushVector = pushVector;
+
+        Manager.manager.ReplaySave();
+
+
         targetRay.gameObject.SetActive(false);
         reflectionRay.gameObject.SetActive(false);
 

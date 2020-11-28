@@ -16,4 +16,9 @@ public class ReplayButton : MonoBehaviour
     {
         GetComponent<Button>().interactable = Manager.manager.ballsAreMoving || Input.GetButton("Jump") ? false : true;
     }
+
+    public void ReplayLastMove()
+    {
+        Manager.manager.ReplayLoad();
+    }
 }

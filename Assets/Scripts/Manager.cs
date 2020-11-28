@@ -127,4 +127,20 @@ public class Manager : MonoBehaviour
         return minutes + ":" + seconds;
     }
 
+    public void ReplaySave()
+    {
+        foreach (GameObject ball in balls)
+        {
+            ball.GetComponent<BallCollision>().previousPosition = ball.transform.position;
+        }
+    }
+
+    public void ReplayLoad()
+    {
+        foreach (GameObject ball in balls)
+        {
+            ball.transform.position = ball.GetComponent<BallCollision>().previousPosition;
+        }
+    }
+
 }

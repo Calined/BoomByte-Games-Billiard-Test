@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallCollision : MonoBehaviour
 {
+    public Vector3 previousPosition;
+
     AudioSource myAudioSource;
 
     // Start is called before the first frame update
