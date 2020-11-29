@@ -14,7 +14,6 @@ public class Manager : MonoBehaviour
     public int playerPoints = 0;
     public int secondsSpent = 0;
 
-
     public bool redBallHit = false;
     public bool yellowBallHit = false;
 
@@ -36,14 +35,6 @@ public class Manager : MonoBehaviour
             manager.secondsSpent = 0;
             Destroy(gameObject);
         }
-
-    }
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
 
     }
 

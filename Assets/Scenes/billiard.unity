@@ -885,11 +885,6 @@ MonoBehaviour:
   timeText: {fileID: 1205315219}
   winScreen: {fileID: 1374203229}
   replayButton: {fileID: 198265574}
---- !u!4 &687953754 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7916896623840978617, guid: 08455d98ddabaa3428dc947856074feb, type: 3}
-  m_PrefabInstance: {fileID: 7916896623153033699}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,10 +1375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9fd71915d8d6643981ad0fb16ba3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetRays:
-  - {fileID: 687953754}
-  - {fileID: 1979902775}
-  - {fileID: 1086267963}
 --- !u!4 &968579772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3676859045005136870, guid: f2def8f0a855d5442a931fcd33b14467, type: 3}
@@ -1524,13 +1515,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: TargetRay (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7916896623840978618, guid: 08455d98ddabaa3428dc947856074feb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08455d98ddabaa3428dc947856074feb, type: 3}
---- !u!4 &1086267963 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7916896623840978617, guid: 08455d98ddabaa3428dc947856074feb, type: 3}
-  m_PrefabInstance: {fileID: 1086267962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1172911780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,13 +2506,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: TargetRay (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7916896623840978618, guid: 08455d98ddabaa3428dc947856074feb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08455d98ddabaa3428dc947856074feb, type: 3}
---- !u!4 &1979902775 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7916896623840978617, guid: 08455d98ddabaa3428dc947856074feb, type: 3}
-  m_PrefabInstance: {fileID: 1979902774}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2064816061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,6 +2790,10 @@ PrefabInstance:
     - target: {fileID: 7916896623840978618, guid: 08455d98ddabaa3428dc947856074feb, type: 3}
       propertyPath: m_Name
       value: TargetRay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7916896623840978618, guid: 08455d98ddabaa3428dc947856074feb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08455d98ddabaa3428dc947856074feb, type: 3}

@@ -6,7 +6,7 @@ public class PushOnCharge : MonoBehaviour
 {
     float currentBallCharge = 0f;
 
-    public List<Transform> targetRays;
+    List<Transform> targetRays = new List<Transform>();
 
     Vector3 pushVector;
 
@@ -16,7 +16,10 @@ public class PushOnCharge : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        foreach (Transform child in transform)
+        {
+            targetRays.Add(child);
+        }
     }
 
     // Update is called once per frame
